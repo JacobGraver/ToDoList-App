@@ -23,6 +23,7 @@ func main() {
 
 	newtodoDescTxt := widget.NewEntry()
 	newtodoDescTxt.PlaceHolder = "New Todo Description..."
+
 	addBtn := widget.NewButton("Add", func() { fmt.Println("Add was clicked!") })
 	addBtn.Disable()
 
@@ -41,22 +42,26 @@ func main() {
 			container.NewBorder(
 				nil, // TOP
 				nil, // BOTTOM
-				newtodoDescTxt,
+				nil,
 				addBtn,
+				newtodoDescTxt,
 			),
+			nil,
+			nil,
 			widget.NewList(
+				// func that returns the number of items in the list
 				func() int {
 					return len(data)
 				},
+				// func that returns the component structure of the List Item
 				func() fyne.CanvasObject {
 					return widget.NewLabel("template")
 				},
+				// func that is called for each item in the list and allows
+				// you to show the content on the previously defined ui structure
 				func(i widget.ListItemID, o fyne.CanvasObject) {
 					o.(*widget.Label).SetText(data[i].Description)
-				},
-			),
-
-			nil, // Right
+				}),
 		),
 	)
 
