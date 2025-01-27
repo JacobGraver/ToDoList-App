@@ -34,6 +34,7 @@ func main() {
 		}
 	}
 
+	// TODO fix window positioning
 	w.SetContent(
 		container.NewBorder(
 			nil, // TOP of the container
