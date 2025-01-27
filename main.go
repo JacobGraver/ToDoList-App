@@ -41,22 +41,21 @@ func main() {
 			container.NewBorder(
 				nil, // TOP
 				nil, // BOTTOM
-				widget.NewList(
-					func() int {
-						return len(data)
-					},
-					func() fyne.CanvasObject {
-						return widget.NewLabel("template")
-					},
-					func(i widget.ListItemID, o fyne.CanvasObject) {
-						o.(*widget.Label).SetText(data[i].Description)
-					},
-				),
-				addBtn,
-				// take the rest of the space
 				newtodoDescTxt,
+				addBtn,
 			),
-			nil, // Left
+			widget.NewList(
+				func() int {
+					return len(data)
+				},
+				func() fyne.CanvasObject {
+					return widget.NewLabel("template")
+				},
+				func(i widget.ListItemID, o fyne.CanvasObject) {
+					o.(*widget.Label).SetText(data[i].Description)
+				},
+			),
+
 			nil, // Right
 		),
 	)
