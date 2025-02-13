@@ -13,7 +13,6 @@ import (
 func main() {
 	a := app.New()
 	w := a.NewWindow("TODO App")
-	//	w.Resize(fyne.NewSize(300, 400))
 
 	data := []todo.Todo{
 		todo.NewTodo("Some stuff"),
